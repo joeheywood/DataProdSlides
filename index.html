@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Speed Comparison</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Speed Comparison">
+  <meta name="author" content="Joe Heywood">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/rNVD3.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  <script src="libraries/widgets/nvd3/js/jquery-1.8.2.min.js"></script>
+<script src="libraries/widgets/nvd3/js/d3.v3.min.js"></script>
+<script src="libraries/widgets/nvd3/js/nv.d3.min-new.js"></script>
+<script src="libraries/widgets/nvd3/js/fisheye.js"></script>
+
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Speed Comparison</h1>
+    <h2>Testing the speed of data.table</h2>
+    <p>Joe Heywood<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Speed Comparison</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>  Purpose of this project is to compare speed</li>
+<li>  Uses the <code>microbenchmarking</code> package</li>
+<li>  The code could be changed to compare whatever you want</li>
+<li>  But I have done a simple comparion of <code>data.table</code> and a normal data frame</li>
+</ul>
+
+<p><img src="%22%7E/DataProducts/projectSlides/stopwatch.jpg%22" alt="Stropwatch text"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How it works</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>  I generate N rows of random numbers and strings of three characters </li>
+<li>  These are stored in two data frames. </li>
+<li>  I then scramble the order of the data frames and merge them </li>
+<li>  <code>microbenchmark</code> repeats this process thousands of times, and returns the
+median value</li>
+<li>  Out of the box, this product gives you a quick comparison of the function
+below:</li>
+</ul>
+
+<pre><code>    mergeFrame &lt;- function(DF1, DF2){
+        ind1 = sample(1:nrow(DF1))
+        ind2 = sample(1:nrow(DF2))
+        merge(DF1[ind1, ], DF2[ind2,], by = &#39;ID&#39;)
+    }
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h3>Results of Analysis</h3>
+  </hgroup>
+  <article data-timings="">
+    <div id = 'chart1' class = 'rChart nvd3'></div>
+
+<script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart1()
+    });
+    function drawchart1(){  
+      var opts = {
+ "dom": "chart1",
+"width":    800,
+"height":    400,
+"x": "rows",
+"y": "value",
+"group": "variable",
+"type": "lineChart",
+"id": "chart1" 
+},
+        data = [
+ {
+ "rows":            100,
+"variable": "data.frame",
+"value":        1283396 
+},
+{
+ "rows":            200,
+"variable": "data.frame",
+"value":      1641529.5 
+},
+{
+ "rows":            300,
+"variable": "data.frame",
+"value":      1993373.5 
+},
+{
+ "rows":            400,
+"variable": "data.frame",
+"value":      2431534.5 
+},
+{
+ "rows":            500,
+"variable": "data.frame",
+"value":        2788955 
+},
+{
+ "rows":            600,
+"variable": "data.frame",
+"value":      3336852.5 
+},
+{
+ "rows":            700,
+"variable": "data.frame",
+"value":      3725903.5 
+},
+{
+ "rows":            800,
+"variable": "data.frame",
+"value":      4301888.5 
+},
+{
+ "rows":            900,
+"variable": "data.frame",
+"value":        4511343 
+},
+{
+ "rows":           1000,
+"variable": "data.frame",
+"value":        5083043 
+},
+{
+ "rows":           1100,
+"variable": "data.frame",
+"value":      5263436.5 
+},
+{
+ "rows":           1200,
+"variable": "data.frame",
+"value":      5994441.5 
+},
+{
+ "rows":           1300,
+"variable": "data.frame",
+"value":        6040045 
+},
+{
+ "rows":           1400,
+"variable": "data.frame",
+"value":      6526105.5 
+},
+{
+ "rows":           1500,
+"variable": "data.frame",
+"value":        6954728 
+},
+{
+ "rows":           1600,
+"variable": "data.frame",
+"value":      7537118.5 
+},
+{
+ "rows":           1700,
+"variable": "data.frame",
+"value":      7944218.5 
+},
+{
+ "rows":           1800,
+"variable": "data.frame",
+"value":        8348309 
+},
+{
+ "rows":           1900,
+"variable": "data.frame",
+"value":      8612969.5 
+},
+{
+ "rows":           2000,
+"variable": "data.frame",
+"value":        9309397 
+},
+{
+ "rows":           2100,
+"variable": "data.frame",
+"value":     10023226.5 
+},
+{
+ "rows":           2200,
+"variable": "data.frame",
+"value":     10652306.5 
+},
+{
+ "rows":           2300,
+"variable": "data.frame",
+"value":     10636403.5 
+},
+{
+ "rows":           2400,
+"variable": "data.frame",
+"value":       13211969 
+},
+{
+ "rows":           2500,
+"variable": "data.frame",
+"value":     13964339.5 
+},
+{
+ "rows":           2600,
+"variable": "data.frame",
+"value":     12273471.5 
+},
+{
+ "rows":           2700,
+"variable": "data.frame",
+"value":       13017143 
+},
+{
+ "rows":           2800,
+"variable": "data.frame",
+"value":       13584543 
+},
+{
+ "rows":           2900,
+"variable": "data.frame",
+"value":       13859454 
+},
+{
+ "rows":           3000,
+"variable": "data.frame",
+"value":     14637525.5 
+},
+{
+ "rows":           3100,
+"variable": "data.frame",
+"value":     14699014.5 
+},
+{
+ "rows":           3200,
+"variable": "data.frame",
+"value":     15435417.5 
+},
+{
+ "rows":           3300,
+"variable": "data.frame",
+"value":     16220408.5 
+},
+{
+ "rows":           3400,
+"variable": "data.frame",
+"value":     16366855.5 
+},
+{
+ "rows":           3500,
+"variable": "data.frame",
+"value":     16992287.5 
+},
+{
+ "rows":           3600,
+"variable": "data.frame",
+"value":     18724357.5 
+},
+{
+ "rows":           3700,
+"variable": "data.frame",
+"value":     19514408.5 
+},
+{
+ "rows":           3800,
+"variable": "data.frame",
+"value":       18905492 
+},
+{
+ "rows":           3900,
+"variable": "data.frame",
+"value":       20530033 
+},
+{
+ "rows":           4000,
+"variable": "data.frame",
+"value":     21214913.5 
+},
+{
+ "rows":            100,
+"variable": "data.table",
+"value":      2559673.5 
+},
+{
+ "rows":            200,
+"variable": "data.table",
+"value":        2654168 
+},
+{
+ "rows":            300,
+"variable": "data.table",
+"value":      2712333.5 
+},
+{
+ "rows":            400,
+"variable": "data.table",
+"value":        2776127 
+},
+{
+ "rows":            500,
+"variable": "data.table",
+"value":        2942860 
+},
+{
+ "rows":            600,
+"variable": "data.table",
+"value":      3040268.5 
+},
+{
+ "rows":            700,
+"variable": "data.table",
+"value":      3127746.5 
+},
+{
+ "rows":            800,
+"variable": "data.table",
+"value":        3230610 
+},
+{
+ "rows":            900,
+"variable": "data.table",
+"value":        3006443 
+},
+{
+ "rows":           1000,
+"variable": "data.table",
+"value":      3123205.5 
+},
+{
+ "rows":           1100,
+"variable": "data.table",
+"value":        2935776 
+},
+{
+ "rows":           1200,
+"variable": "data.table",
+"value":      3272572.5 
+},
+{
+ "rows":           1300,
+"variable": "data.table",
+"value":      3004149.5 
+},
+{
+ "rows":           1400,
+"variable": "data.table",
+"value":      3053892.5 
+},
+{
+ "rows":           1500,
+"variable": "data.table",
+"value":        3045828 
+},
+{
+ "rows":           1600,
+"variable": "data.table",
+"value":        3204832 
+},
+{
+ "rows":           1700,
+"variable": "data.table",
+"value":      3283407.5 
+},
+{
+ "rows":           1800,
+"variable": "data.table",
+"value":      3141996.5 
+},
+{
+ "rows":           1900,
+"variable": "data.table",
+"value":        3098959 
+},
+{
+ "rows":           2000,
+"variable": "data.table",
+"value":      3316480.5 
+},
+{
+ "rows":           2100,
+"variable": "data.table",
+"value":        3370065 
+},
+{
+ "rows":           2200,
+"variable": "data.table",
+"value":        3438578 
+},
+{
+ "rows":           2300,
+"variable": "data.table",
+"value":        3305435 
+},
+{
+ "rows":           2400,
+"variable": "data.table",
+"value":      4022489.5 
+},
+{
+ "rows":           2500,
+"variable": "data.table",
+"value":        4020915 
+},
+{
+ "rows":           2600,
+"variable": "data.table",
+"value":        3422769 
+},
+{
+ "rows":           2700,
+"variable": "data.table",
+"value":        3528595 
+},
+{
+ "rows":           2800,
+"variable": "data.table",
+"value":      3632091.5 
+},
+{
+ "rows":           2900,
+"variable": "data.table",
+"value":      3537680.5 
+},
+{
+ "rows":           3000,
+"variable": "data.table",
+"value":      3698786.5 
+},
+{
+ "rows":           3100,
+"variable": "data.table",
+"value":      3620616.5 
+},
+{
+ "rows":           3200,
+"variable": "data.table",
+"value":      3666609.5 
+},
+{
+ "rows":           3300,
+"variable": "data.table",
+"value":        3767114 
+},
+{
+ "rows":           3400,
+"variable": "data.table",
+"value":      3695069.5 
+},
+{
+ "rows":           3500,
+"variable": "data.table",
+"value":        3920674 
+},
+{
+ "rows":           3600,
+"variable": "data.table",
+"value":        3931532 
+},
+{
+ "rows":           3700,
+"variable": "data.table",
+"value":        3797268 
+},
+{
+ "rows":           3800,
+"variable": "data.table",
+"value":        3933024 
+},
+{
+ "rows":           3900,
+"variable": "data.table",
+"value":        4173606 
+},
+{
+ "rows":           4000,
+"variable": "data.table",
+"value":      3970043.5 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        
+          
+        
+
+        
+        
+        
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Potential for Development</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>  The code can be edited to measure whichever functions you choose</li>
+<li>  At the moment, it is set up to measure the two generated data frames</li>
+</ul>
+
+<h2>*   But other packages that aim to improve performance can also be tested</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Speed Comparison'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='How it works'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Results of Analysis'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Potential for Development'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

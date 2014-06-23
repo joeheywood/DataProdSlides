@@ -1,0 +1,61 @@
+---
+title       : Speed Comparison
+subtitle    : Testing the speed of data.table
+author      : Joe Heywood
+job         : 
+framework   : io2012       # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+ext_widgets : {rCharts: libraries/nvd3}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Speed Comparison
+
+*   Purpose of this project is to compare speed
+*   Uses the `microbenchmarking` package
+*   The code could be changed to compare whatever you want
+*   But I have done a simple comparion of `data.table` and a normal data frame
+
+
+--- .class #id 
+
+## How it works
+
+*   I generate N rows of random numbers and strings of three characters 
+*   These are stored in two data frames. 
+*   I then scramble the order of the data frames and merge them 
+*   `microbenchmark` repeats this process thousands of times, and returns the
+median value
+*   Out of the box, this product gives you a quick comparison of the function
+below:
+
+```
+    mergeFrame <- function(DF1, DF2){
+        ind1 = sample(1:nrow(DF1))
+        ind2 = sample(1:nrow(DF2))
+        merge(DF1[ind1, ], DF2[ind2,], by = 'ID')
+    }
+```
+
+---
+### Results of Analysis
+
+```{r nvd3plot, echo=FALSE, message=FALSE, results='asis'}
+require(rCharts)
+source('../speedComparison.R')
+m <- readRDS('../savedValues.rds')
+n1 <- nPlot(value ~ rows, group='variable', data = m, type = 'lineChart')
+n1$print('chart1')
+```
+
+---
+## Potential for Development
+*   The code can be edited to measure whichever functions you choose
+*   At the moment, it is set up to measure the two generated data frames
+*   But other packages that aim to improve performance can also be tested
+---
+
+

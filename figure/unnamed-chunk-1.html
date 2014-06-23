@@ -1,0 +1,493 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='http://nvd3.org/assets/css/nv.d3.css'>
+    
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type='text/javascript'></script>
+    <script src='http://d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='http://timelyportfolio.github.io/rCharts_nvd3_tests/libraries/widgets/nvd3/js/nv.d3.min-new.js' type='text/javascript'></script>
+    <script src='http://nvd3.org/assets/lib/fisheye.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart6777c4f2122' class = 'rChart nvd3'></div>    
+    <script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart6777c4f2122()
+    });
+    function drawchart6777c4f2122(){  
+      var opts = {
+ "dom": "chart6777c4f2122",
+"width":    800,
+"height":    400,
+"x": "rows",
+"y": "value",
+"type": "scatterChart",
+"id": "chart6777c4f2122" 
+},
+        data = [
+ {
+ "rows":            100,
+"variable": "data.frame",
+"value":        1283396 
+},
+{
+ "rows":            200,
+"variable": "data.frame",
+"value":      1641529.5 
+},
+{
+ "rows":            300,
+"variable": "data.frame",
+"value":      1993373.5 
+},
+{
+ "rows":            400,
+"variable": "data.frame",
+"value":      2431534.5 
+},
+{
+ "rows":            500,
+"variable": "data.frame",
+"value":        2788955 
+},
+{
+ "rows":            600,
+"variable": "data.frame",
+"value":      3336852.5 
+},
+{
+ "rows":            700,
+"variable": "data.frame",
+"value":      3725903.5 
+},
+{
+ "rows":            800,
+"variable": "data.frame",
+"value":      4301888.5 
+},
+{
+ "rows":            900,
+"variable": "data.frame",
+"value":        4511343 
+},
+{
+ "rows":           1000,
+"variable": "data.frame",
+"value":        5083043 
+},
+{
+ "rows":           1100,
+"variable": "data.frame",
+"value":      5263436.5 
+},
+{
+ "rows":           1200,
+"variable": "data.frame",
+"value":      5994441.5 
+},
+{
+ "rows":           1300,
+"variable": "data.frame",
+"value":        6040045 
+},
+{
+ "rows":           1400,
+"variable": "data.frame",
+"value":      6526105.5 
+},
+{
+ "rows":           1500,
+"variable": "data.frame",
+"value":        6954728 
+},
+{
+ "rows":           1600,
+"variable": "data.frame",
+"value":      7537118.5 
+},
+{
+ "rows":           1700,
+"variable": "data.frame",
+"value":      7944218.5 
+},
+{
+ "rows":           1800,
+"variable": "data.frame",
+"value":        8348309 
+},
+{
+ "rows":           1900,
+"variable": "data.frame",
+"value":      8612969.5 
+},
+{
+ "rows":           2000,
+"variable": "data.frame",
+"value":        9309397 
+},
+{
+ "rows":           2100,
+"variable": "data.frame",
+"value":     10023226.5 
+},
+{
+ "rows":           2200,
+"variable": "data.frame",
+"value":     10652306.5 
+},
+{
+ "rows":           2300,
+"variable": "data.frame",
+"value":     10636403.5 
+},
+{
+ "rows":           2400,
+"variable": "data.frame",
+"value":       13211969 
+},
+{
+ "rows":           2500,
+"variable": "data.frame",
+"value":     13964339.5 
+},
+{
+ "rows":           2600,
+"variable": "data.frame",
+"value":     12273471.5 
+},
+{
+ "rows":           2700,
+"variable": "data.frame",
+"value":       13017143 
+},
+{
+ "rows":           2800,
+"variable": "data.frame",
+"value":       13584543 
+},
+{
+ "rows":           2900,
+"variable": "data.frame",
+"value":       13859454 
+},
+{
+ "rows":           3000,
+"variable": "data.frame",
+"value":     14637525.5 
+},
+{
+ "rows":           3100,
+"variable": "data.frame",
+"value":     14699014.5 
+},
+{
+ "rows":           3200,
+"variable": "data.frame",
+"value":     15435417.5 
+},
+{
+ "rows":           3300,
+"variable": "data.frame",
+"value":     16220408.5 
+},
+{
+ "rows":           3400,
+"variable": "data.frame",
+"value":     16366855.5 
+},
+{
+ "rows":           3500,
+"variable": "data.frame",
+"value":     16992287.5 
+},
+{
+ "rows":           3600,
+"variable": "data.frame",
+"value":     18724357.5 
+},
+{
+ "rows":           3700,
+"variable": "data.frame",
+"value":     19514408.5 
+},
+{
+ "rows":           3800,
+"variable": "data.frame",
+"value":       18905492 
+},
+{
+ "rows":           3900,
+"variable": "data.frame",
+"value":       20530033 
+},
+{
+ "rows":           4000,
+"variable": "data.frame",
+"value":     21214913.5 
+},
+{
+ "rows":            100,
+"variable": "data.table",
+"value":      2559673.5 
+},
+{
+ "rows":            200,
+"variable": "data.table",
+"value":        2654168 
+},
+{
+ "rows":            300,
+"variable": "data.table",
+"value":      2712333.5 
+},
+{
+ "rows":            400,
+"variable": "data.table",
+"value":        2776127 
+},
+{
+ "rows":            500,
+"variable": "data.table",
+"value":        2942860 
+},
+{
+ "rows":            600,
+"variable": "data.table",
+"value":      3040268.5 
+},
+{
+ "rows":            700,
+"variable": "data.table",
+"value":      3127746.5 
+},
+{
+ "rows":            800,
+"variable": "data.table",
+"value":        3230610 
+},
+{
+ "rows":            900,
+"variable": "data.table",
+"value":        3006443 
+},
+{
+ "rows":           1000,
+"variable": "data.table",
+"value":      3123205.5 
+},
+{
+ "rows":           1100,
+"variable": "data.table",
+"value":        2935776 
+},
+{
+ "rows":           1200,
+"variable": "data.table",
+"value":      3272572.5 
+},
+{
+ "rows":           1300,
+"variable": "data.table",
+"value":      3004149.5 
+},
+{
+ "rows":           1400,
+"variable": "data.table",
+"value":      3053892.5 
+},
+{
+ "rows":           1500,
+"variable": "data.table",
+"value":        3045828 
+},
+{
+ "rows":           1600,
+"variable": "data.table",
+"value":        3204832 
+},
+{
+ "rows":           1700,
+"variable": "data.table",
+"value":      3283407.5 
+},
+{
+ "rows":           1800,
+"variable": "data.table",
+"value":      3141996.5 
+},
+{
+ "rows":           1900,
+"variable": "data.table",
+"value":        3098959 
+},
+{
+ "rows":           2000,
+"variable": "data.table",
+"value":      3316480.5 
+},
+{
+ "rows":           2100,
+"variable": "data.table",
+"value":        3370065 
+},
+{
+ "rows":           2200,
+"variable": "data.table",
+"value":        3438578 
+},
+{
+ "rows":           2300,
+"variable": "data.table",
+"value":        3305435 
+},
+{
+ "rows":           2400,
+"variable": "data.table",
+"value":      4022489.5 
+},
+{
+ "rows":           2500,
+"variable": "data.table",
+"value":        4020915 
+},
+{
+ "rows":           2600,
+"variable": "data.table",
+"value":        3422769 
+},
+{
+ "rows":           2700,
+"variable": "data.table",
+"value":        3528595 
+},
+{
+ "rows":           2800,
+"variable": "data.table",
+"value":      3632091.5 
+},
+{
+ "rows":           2900,
+"variable": "data.table",
+"value":      3537680.5 
+},
+{
+ "rows":           3000,
+"variable": "data.table",
+"value":      3698786.5 
+},
+{
+ "rows":           3100,
+"variable": "data.table",
+"value":      3620616.5 
+},
+{
+ "rows":           3200,
+"variable": "data.table",
+"value":      3666609.5 
+},
+{
+ "rows":           3300,
+"variable": "data.table",
+"value":        3767114 
+},
+{
+ "rows":           3400,
+"variable": "data.table",
+"value":      3695069.5 
+},
+{
+ "rows":           3500,
+"variable": "data.table",
+"value":        3920674 
+},
+{
+ "rows":           3600,
+"variable": "data.table",
+"value":        3931532 
+},
+{
+ "rows":           3700,
+"variable": "data.table",
+"value":        3797268 
+},
+{
+ "rows":           3800,
+"variable": "data.table",
+"value":        3933024 
+},
+{
+ "rows":           3900,
+"variable": "data.table",
+"value":        4173606 
+},
+{
+ "rows":           4000,
+"variable": "data.table",
+"value":      3970043.5 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        
+          
+        
+
+        
+        
+        
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+    
+    <script></script>    
+  </body>
+</html>
